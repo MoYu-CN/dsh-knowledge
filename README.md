@@ -10,6 +10,26 @@
 
 一句话原理：可复用的做法写进 `方法/`，踩过的坑写进 `避错/`；**编号只增不改**（引用才靠得住），分册与索引由工具自动维护。
 
+## 界面
+
+### 设置 →「启用知识库沉淀」
+
+![知识库设置](docs/settings-page.png)
+
+*设置页：沉淀状态、存储位置（留空 = 每个项目在自己根目录下建「知识库」）、每册容量与总量上限。*
+*The settings page: distill status, storage location (leave it empty to keep a `知识库/` folder in each project root), per-volume capacity and total limit.*
+
+### 会话头部的「查看 / 沉淀」
+
+<img src="docs/distill-actions.png" alt="查看与沉淀按钮" width="126">
+
+*两个按钮：`查看` 打开右栏知识库面板；`沉淀` 把本次对话交给智能体提炼后写库（类别与领域由它判断）。*
+*Two buttons: `查看` opens the knowledge browser in the right pane; `沉淀` hands the current conversation to the agent to distill and write into the library.*
+
+> 截图取自开发机上的实测界面，其中的示例路径与对话内容都是**演示数据**，不是插件的一部分。
+> The screenshots come from a real development machine: the sample path and conversation text in them
+> are **demo data**, not part of the plugin.
+
 ---
 
 ## 1. 它是什么
