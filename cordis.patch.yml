@@ -1,0 +1,4 @@
+- insert:
+    - id: knowledge
+      name: dsh-knowledge
+      inject: [webServer]

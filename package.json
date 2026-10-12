@@ -1,0 +1,70 @@
+{
+  "name": "dsh-knowledge",
+  "version": "0.1.0",
+  "description": "Let the agent record the pitfalls it hits and the practices worth reusing into a per-project knowledge base, so later sessions benefit automatically.",
+  "type": "module",
+  "icon": "./icon.svg",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/kb-config.js",
+    "lib/kb-store.js",
+    "lib/client.js",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.md"
+  ],
+  "meta": {
+    "title": {
+      "zh": "知识库",
+      "en": "Knowledge Base"
+    },
+    "description": {
+      "zh": "把踩过的坑与可复用做法沉淀进项目知识库：避错/方法分册，编号只增不改，索引自动同步。",
+      "en": "Accumulate pitfalls and reusable practices into a per-project knowledge base: pitfall and method volumes, monotonic entry IDs, index kept in sync automatically."
+    }
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "immediately": true,
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "knowledge-base",
+    "pitfall",
+    "method",
+    "memory",
+    "cordis-plugin"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoYu-CN/dsh-knowledge.git"
+  }
+}
