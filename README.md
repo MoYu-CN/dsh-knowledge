@@ -1,7 +1,7 @@
 # dsh-knowledge —— 项目知识库
 
 > **English summary** — A per-project knowledge base for DSH (DeepSeek Harness): the agent records the pitfalls it hits under `避错/` and the reusable practices under `方法/`, with monotonic entry IDs and auto-maintained indexes.
-> **Install:** reference this folder from your DSH profile (`"dsh-knowledge": "link:<your dir>/dsh-knowledge"`), then restart DSH for the host half and reload the page for the client half.
+> **Install:** `dsh plugin add @moyu-cn/dsh-knowledge` (recommended, from npm). The tarball and from-source alternatives are in the 安装 / Install section below. Then restart DSH for the host half and reload the page for the client half.
 > **Highlights:** 8 agent tools (`kb_search` / `kb_add` / `kb_list` / `kb_get` / `kb_guide` / `kb_remove` / `kb_prune` / `kb_init`), a same-origin HTTP API, a right-pane browser and a settings row.
 > **Language:** the settings UI follows the host language setting — Chinese and English dictionaries are both built in. **Model-facing prompts stay in Chinese** by design.
 > **License:** MIT.
@@ -9,6 +9,35 @@
 让智能体把**踩过的坑**与**可复用的做法**沉淀进项目知识库，并在后续会话里自动受益。
 
 一句话原理：可复用的做法写进 `方法/`，踩过的坑写进 `避错/`；**编号只增不改**（引用才靠得住），分册与索引由工具自动维护。
+
+## 安装 / Install
+
+**✅ 推荐 / Recommended —— 从 npm 安装（用包名，不要手抄 tarball 地址）：**
+
+```bash
+dsh plugin add @moyu-cn/dsh-knowledge
+```
+
+*装完按提示重启 DSH；客户端那一半刷新页面即可生效。*
+*Restart DSH when prompted; reload the page for the client half.*
+
+### 备选方式 / Alternatives
+
+**① tarball —— 直接装打包文件 / install the packed tarball**
+
+```bash
+dsh plugin add https://registry.npmjs.org/@moyu-cn/dsh-knowledge/-/dsh-knowledge-0.1.0.tgz
+```
+
+**② 源码 —— clone 后把本地目录链接进 profile / from source: clone and link the folder**
+
+```bash
+git clone https://github.com/MoYu-CN/dsh-knowledge.git
+dsh plugin add "link:<你的目录>/dsh-knowledge"
+```
+
+`link:` 不拷贝、直接软链，改代码立刻生效 —— 适合要改插件本身的场景。
+`link:` symlinks instead of copying, so local edits take effect immediately — use it when you want to modify the plugin itself.
 
 ## 界面
 
@@ -59,13 +88,14 @@
 
 `/__kb/client.js` · `/__kb/list` · `/__kb/get` · `/__kb/search` · `/__kb/pick-dir` · `/__kb/config` · `/__kb/remove` · `/__kb/distill` · `/__kb/projects` · `/__kb/init` · `/__kb/add`
 
-## 2. 怎么装
+## 2. 怎么装（源码方式的细节）
 
-插件的安装由 DSH 的 bundle / 插件管理器负责，本仓库只提供可被安装的插件目录。通用做法：
+推荐直接用开头的 `dsh plugin add @moyu-cn/dsh-knowledge`。本节是**源码 / `link:` 方式**的细节：
 
 1. 把本目录放到一个稳定位置（例：`<你的目录>/dsh-knowledge`）。
-2. 在 profile 的配置里以本地路径引用它：`"dsh-knowledge": "link:<你的目录>/dsh-knowledge"`。
+2. 装进 profile：`dsh plugin add "link:<你的目录>/dsh-knowledge"`。
    - 用 `link:` 而不是 `file:`：不拷贝、直接软链，改代码立刻生效。
+   - 若是手工改 profile 配置，依赖键要用插件 `package.json` 里的 `name`，即 `"@moyu-cn/dsh-knowledge": "link:<你的目录>/dsh-knowledge"`。
 3. Host 半需要**重启 DSH**；客户端半需要**刷新页面**。
 4. 装好后「设置 → 通用」会多出知识库那一行，右栏多一个知识库面板。
 
