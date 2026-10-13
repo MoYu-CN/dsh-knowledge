@@ -1,5 +1,5 @@
 {
-  "name": "dsh-knowledge",
+  "name": "@moyu-cn/dsh-knowledge",
   "version": "0.1.0",
   "author": "MoYu-CN",
   "description": "Let the agent record the pitfalls it hits and the practices worth reusing into a per-project knowledge base, so later sessions benefit automatically.",
